@@ -44,17 +44,17 @@ const findRecipes = () => {
   return (
     <View style={styles.container}>
       <FlatList
-      data = {recipes}
-      renderItem = {({item}) => {
-        return <View><Text>{item.title}</Text>
-          <Image source={{ uri: `${item.thumbnail}` }}
-            style={{ width: 50, height: 50 }} />
-        </View>;
-      }}
-      keyExtractor={item => `${item.title}${item.thumbnail}`}
-      ItemSeparatorComponent = {listSeparator}
+        data = {recipes}
+        renderItem = {({item}) => 
+          <View>
+            <Text>{item.title}</Text>
+            <Image source={{ uri: `${item.thumbnail}` }}
+            style={{ width: 60, height: 60 }} />
+          </View>}
+        keyExtractor={item => `${item.title}${item.thumbnail}`}
+        ItemSeparatorComponent = {listSeparator}
       />
-     
+
       <TextInput style={styles.textInputStyle} onChangeText={text => setIngredient(text)} value={ingredient}
       placeholder='Write ingredients separated by comma'></TextInput>
       <Button title="FIND" onPress={findRecipes}></Button>
